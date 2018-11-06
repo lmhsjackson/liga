@@ -2,14 +2,39 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+const list = [
+  {
+    title: 'React',
+    url: 'https://facebook.github.io/react/',
+    author: 'Jordan Walke',
+    num_comments: 3,
+    points: 4,
+    objectID: 0,
+  },
+  {
+    title: 'Redux',
+    url: 'https://github.com/reactjs/redux',
+    author: 'Dan Abramov, Andrew Clark',
+    num_comments: 2,
+    points: 5,
+    objectID: 1,
+  },
+];
+
 class App extends Component {
   render() {
-    var HelloWorld = 'Welcome to the Road to learn React!';
-    var User = {name: 'Jose', age: 32};
     return (
       <div className="App">
-      <h2>{HelloWorld}</h2>
-      <h1>{User.name} {User.age}</h1>
+      {list.map(item => 
+        <div key={item.objectID}>
+          <span>
+          <a href={item.url}>{item.title}</a> 
+          </span>
+          <span> Autor: {item.author}</span>
+          <span> Comentarios: {item.author} </span>
+          <span> Puntos: {item.points} </span>
+        </div>
+      )}
       </div>
     );
   }
